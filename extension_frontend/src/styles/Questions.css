@@ -11,8 +11,34 @@
   position: fixed;
 }
 
+.QuesHeadingDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 5px auto;
+  border-radius: 15px;
+  border: solid 2px blueviolet;
+  position: fixed; /* Changed from fixed to sticky */
+  top: 0;
+  left: 0;
+  z-index: 10; 
+  background-color: white; /* Adds a background to prevent content from showing through */
+}
 
+.QuestionsHeading {
+  font-family: 'Kanit', serif;
+  font-weight: 500;
+  font-style: normal;
+  color: blueviolet;
+  margin: 10px 15px;
+  font-size: 2rem;
+}
 
-.scrollWindow::-webkit-scrollbar {
+.custom-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.custom-scroll::-webkit-scrollbar {
   display: none;
 }

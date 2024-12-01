@@ -47,13 +47,13 @@ const apiResponse: ApiResponse = {
       correctAnswer: "H2O",
       explanation: "H2O represents water, consisting of two hydrogen atoms bonded to one oxygen atom."
     },
-    // {
-    //   id: 4,
-    //   question: "Who wrote 'Romeo and Juliet'?",
-    //   answers: ["William Shakespeare", "Charles Dickens", "J.K. Rowling", "George Orwell"],
-    //   correctAnswer: "William Shakespeare",
-    //   explanation: "William Shakespeare, an English playwright, authored 'Romeo and Juliet,' a famous romantic tragedy."
-    // },
+    {
+      id: 4,
+      question: "Who wrote 'Romeo and Juliet'?",
+      answers: ["William Shakespeare", "Charles Dickens", "J.K. Rowling", "George Orwell"],
+      correctAnswer: "William Shakespeare",
+      explanation: "William Shakespeare, an English playwright, authored 'Romeo and Juliet,' a famous romantic tragedy."
+    },
     // {
     //   id: 5,
     //   question: "Which is the smallest prime number?",
@@ -102,13 +102,13 @@ const apiResponse: ApiResponse = {
 // Mock API Response Example
 console.log(JSON.stringify(apiResponse, null, 2));
 
-
 const QuestionsPage = () => {
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [showBack, setShowBack] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [resetTimer, setResetTimer] = useState(false);
 
   const questions = apiResponse.questions;
 
@@ -124,6 +124,7 @@ const QuestionsPage = () => {
 
   const handleNext = () => {
     setShowBack(false);
+    setResetTimer(!resetTimer);
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -143,7 +144,7 @@ const QuestionsPage = () => {
     const percentageScore = ((score / totalQuestions) * 100).toFixed(2);
 
     return (
-      <div className="flex flex-col items-center h-screen bg-gray-100 p-4">
+      <div className="flex overflow-y-scroll flex-col items-center h-screen bg-gray-100 p-4 custom-scroll">
         <div className="bg-white shadow-lg rounded-lg p-8 text-center max-w-md w-full">
           <h1 className="text-3xl font-bold mb-4 text-blue-600">Quiz Completed!</h1>
           <div className="mb-6">
@@ -183,7 +184,7 @@ const QuestionsPage = () => {
           </div>
           <button 
             onClick={() => navigate('/')}
-            className="mt-6 bg-blue-600 text-lg text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
+            className="mt-6 bg-[blueviolet] text-lg text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-white hover:text-[blueviolet] hover:border-[blueviolet] hover:border-3 transition duration-200 border-transparent border"
           >
             Back to Home
           </button>
@@ -195,7 +196,7 @@ const QuestionsPage = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="flex flex-col h-auto w-auto px-4 py-4 bg-gray-100">
+    <div className="flex overflow-y-scroll custom-scroll flex-col h-auto w-auto px-4 py-4 bg-gray-100">
       <div className="QuesHeadingDiv">
         <h1 className="QuestionsHeading">Questions - {apiResponse.title}</h1>
         <svg onClick={()=>{
@@ -211,10 +212,11 @@ const QuestionsPage = () => {
         onAnswerSelect={handleAnswerSelect}
         showBack={showBack}
         onReveal={handleReveal}
+        resetTimer={resetTimer}
       />
       {showBack && (
         <button
-          className="mt-6 bg-blue-600 text-lg text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200"
+          className="mt-6 bg-[blueviolet] text-lg text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-white hover:text-[blueviolet] hover:border-[blueviolet] hover:border-3 transition duration-200 border-transparent border"
           onClick={handleNext}
         >
           {currentQuestionIndex < questions.length - 1 ? "Next" : "Finish"}
@@ -225,4 +227,3 @@ const QuestionsPage = () => {
 };
 
 export default QuestionsPage;
-

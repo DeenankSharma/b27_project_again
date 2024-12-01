@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/QuestionTile.css";
+import { CiBookmark } from "react-icons/ci";
 
 interface QuestionTileProps {
   question: string;
@@ -10,6 +11,7 @@ interface QuestionTileProps {
   onAnswerSelect: (answer: string) => void;
   showBack: boolean;
   onReveal: () => void;
+  resetTimer: boolean; 
 }
 
 const QuestionTile: React.FC<QuestionTileProps> = ({
@@ -21,16 +23,52 @@ const QuestionTile: React.FC<QuestionTileProps> = ({
   onAnswerSelect,
   showBack,
   onReveal,
+  resetTimer,
 }) => {
+  const [timeLeft, setTimeLeft] = useState(60);
+
+  useEffect(() => {
+    
+      setTimeLeft(60);
+    
+  }, [resetTimer]);
+
+  useEffect(() => {
+    if (timeLeft > 0 && !showBack) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft, showBack]);
+
+  const timerWidth = `${(timeLeft / 60) * 100}%`;
+
+  const addToBookmarks = () => {
+    console.log("Add to Bookmarks");
+  }
+
   return (
     <div className="question-tile-container">
       <div 
         className={`flip-card ${showBack ? "flipped" : ""}`}
       >
+        {!showBack && (
+          <div className="z-10 timer-bar" style={{ width: timerWidth }}></div>
+        )}
+        
+
         {/* Front Side */}
         <div className="flip-card-inner">
           <div className="flip-card-front">
-            <p className="text-xl font-bold mb-6 text-gray-800">{question}</p>
+          
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-xl font-bold text-gray-800 flex-grow">{question}</p>
+            <CiBookmark 
+            onClick={addToBookmarks}
+              className="text-2xl cursor-pointer transition-transform transform hover:scale-110"  
+            />
+          </div>
+
+
             <div className="space-y-4">
               {answers.map((answer, index) => (
                 <label
@@ -54,11 +92,12 @@ const QuestionTile: React.FC<QuestionTileProps> = ({
               ))}
             </div>
             <button
-              className="mt-6 bg-blue-600 text-lg text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
-              onClick={onReveal}
-            >
-              Reveal Answer
-            </button>
+  className="mt-6 bg-[blueviolet] text-lg text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-white hover:text-[blueviolet] hover:border-[blueviolet] hover:border-3 transition duration-200 border-transparent border"
+  onClick={onReveal}
+>
+  Reveal Answer
+</button>
+
           </div>
     
           {/* Back Side */}
