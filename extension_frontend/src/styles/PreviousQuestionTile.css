@@ -1,0 +1,161 @@
+.prevQuesHeadingDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+  /* padding: 0 5px; */
+  border-radius: 15px;
+  border: solid 2px blueviolet;
+  position: fixed;
+  top: 5px;
+  /* right: auto; */
+  left: 9px;
+}
+
+.scrollWindow{
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  top: 100px;
+  left: 9px;
+}
+
+.scrollWindow::-webkit-scrollbar {
+  display: none; 
+}
+
+
+.previousQuestionsHeading {
+  font-family: "Kanit", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: blueviolet;
+  margin: 0;
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left:15px ;
+}
+
+.backToHome {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  margin-right: 15px;
+  padding: 0;
+}
+
+.backToHome::before {
+  content: '';
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+.home_pic{
+  margin-right: 10px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.backToHome:hover {
+  background-color: white;
+  color: blueviolet;
+  border: 2px solid #8a2be2;
+}
+
+
+
+.accordion-container {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 3%;
+}
+
+.accordion-item {
+  border: 1px solid blueviolet;
+  border-radius: 15px;
+
+}
+
+.accordion-header {
+  border-radius: 15px;
+  font-family: "Kanit", serif;
+  font-weight: 700;
+  font-style: normal;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blueviolet;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  text-align: left;
+  font-size: 1.5rem;
+  color: white  ;
+}
+
+.accordion-header:hover {
+  background-color: white;
+  color: blueviolet;
+}
+
+.accordion-header.active {
+  background-color: white;
+  color: blueviolet;  
+}
+
+.accordion-question {
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.accordion-icon {
+  margin-left: 10px;
+  color: black;
+}
+
+
+.accordion-content {
+  border-radius: 15px;
+  padding: 15px;
+  background-color: white;
+  overflow-wrap: break-word;
+  animation: slideDown 1s ease;
+  font-size: larger;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

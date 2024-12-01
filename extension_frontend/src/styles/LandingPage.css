@@ -1,0 +1,65 @@
+.MainLandingDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landingPageHeading{
+  font-family: "Kanit", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: blueviolet;
+  margin: 0;
+  font-size: 3rem;
+}
+
+.landingPageSubHeading{
+  font-family: "Kanit", serif;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.start_interview_button{
+  cursor: pointer;
+  border: solid 2px blueviolet;
+  border-radius: 50%;
+  /* border: none; */
+  background-color: blueviolet;
+  color: white;
+  font-family: "Kanit";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  padding-left: 7%;
+  padding-right: 7%;
+  transition: background-color 0.5s ease,color 0.5s ease;
+  /* transition: ; */
+  
+}
+.start_interview_button:hover{
+  border: solid 2px blueviolet;
+  border-radius: 20px;
+  background-color: white;
+  color: blueviolet;
+}
+
+.previous_bookmarks {
+  font-size: larger;
+  font-family: "Kanit", serif;
+  font-weight: 300;
+  font-style: normal;
+  color: grey;
+  margin-top: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease; /* Add smooth transition */
+}
+
+.previous_bookmarks:hover {
+  text-decoration: underline;
+}
