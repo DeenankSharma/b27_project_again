@@ -4,6 +4,8 @@ import LandingPage from './pages/LandingPage';
 import PreviousQuestions from './pages/PreviousQuestions';
 import { useTestStartContext } from './context/testContext';
 import QuestionsPage from './pages/Questions';
+import RegisterPage from './pages/RegisterPage';
+import RegisteredUserPage from './pages/RegisteredUser';
 
 const App:React.FC = () =>{
   const {testStart} = useTestStartContext();
@@ -13,7 +15,9 @@ const App:React.FC = () =>{
       <header className='App-header'>
         <MemoryRouter>
         <Routes>
-            <Route element={<LandingPage />} path='/' /> 
+          <Route element={<RegisterPage />} path='/'/>
+          <Route element={<RegisteredUserPage />} path='/registered'/>
+            <Route element={<LandingPage />} path='/landing' /> 
             <Route element={<PreviousQuestions />} path='/prevQ'/>
             <Route element={testStart === true ? <QuestionsPage /> : <LandingPage />} path='/questions'/>
         </Routes>

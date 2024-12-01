@@ -1,4 +1,4 @@
-.MainLandingDiv{
+.MainRegisterDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
   font-family: "Kanit", serif;
 }
 
-.landingPageHeading{
+.registerPageHeading {
   font-family: "Kanit", serif;
   font-weight: 700;
   font-style: normal;
@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.landingPageSubHeading{
+.registerPageSubHeading {
   font-family: "Kanit", serif;
   font-weight: 500;
   font-style: normal;
@@ -27,7 +27,32 @@
   text-align: center;
 }
 
-.start_interview_button{
+.registerLabel {
+  font-family: "Kanit", serif;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 5px;
+  color: blueviolet;
+  font-size: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid blueviolet;
+  border-radius: 10px;
+  font-family: "Kanit", serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: purple;
+}
+
+.registerButton {
   cursor: pointer;
   border: solid 2px blueviolet;
   border-radius: 50%;
@@ -44,17 +69,16 @@
   padding-left: 7%;
   padding-right: 7%;
   transition: background-color 0.5s ease,color 0.5s ease;
-  /* transition: ; */
-  
 }
-.start_interview_button:hover{
+
+.registerButton:hover {
   border: solid 2px blueviolet;
   border-radius: 20px;
   background-color: white;
   color: blueviolet;
 }
 
-.previous_bookmarks {
+.alreadyUser {
   font-family: "Kanit", serif;
   font-weight: 300;
   color: grey;
@@ -64,19 +88,7 @@
   transition: color 0.3s ease;
 }
 
-.previous_bookmarks:hover {
+.alreadyUser:hover {
   color: blueviolet;
   text-decoration: underline;
-}
-
-.nameNotFilled {
-  font-family: "Kanit", serif;
-  font-weight: 300;
-  color: red;
-  margin-top: 5px;
-  font-size: larger;
-  /* cursor: pointer; */
-  /* transition: color 0.3s ease; */
-  margin-top: 0;
-  margin-bottom: 5px;
 }

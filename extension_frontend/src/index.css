@@ -1,6 +1,7 @@
 @import './styles/LandingPage.css';
 
 @import './styles/PreviousQuestionTile.css';
+@import './styles/RegisterPage.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

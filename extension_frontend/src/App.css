@@ -1,5 +1,6 @@
 @import './styles/LandingPage.css';
 @import './styles/PreviousQuestionTile.css';
+@import './styles/RegisterPage.css';
 body {
   display: flex;
   flex-direction: column;

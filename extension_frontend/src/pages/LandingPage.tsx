@@ -1,10 +1,16 @@
 import {useNavigate } from "react-router-dom";
 import { useTestStartContext } from "../context/testContext";
+import axios from "axios";
+import { AccordianDataType } from "../utils/types";
+import { useState } from "react";
 
 const LandingPage:React.FC = () =>{
   const {testStart, updateTestStart} = useTestStartContext();
+  const [questions,setQuestions] = useState<AccordianDataType[]|null>(null)
   const navigate = useNavigate();
-  function prevQues(){
+  async function prevQues(){
+    const response = await axios.get<[]>('')
+    setQuestions(response.data) 
     navigate('/prevQ')
   }
 
