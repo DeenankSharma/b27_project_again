@@ -1,3 +1,5 @@
+/// <reference types="chrome" />
+
 import React, { useEffect, useState } from "react";
 import "../styles/QuestionTile.css";
 import { CiBookmark } from "react-icons/ci";
@@ -42,7 +44,24 @@ const QuestionTile: React.FC<QuestionTileProps> = ({
 
   const timerWidth = `${(timeLeft / 60) * 100}%`;
 
-  const addToBookmarks = () => {
+  const addToBookmarks = (question:string,answer:string) => {
+
+      chrome.storage.local.get(["saved_questions"]).then((result)=>{
+      const current_saved:{[key:string]:string|number}[]=result["saved_questions"]||[];
+      if(!Array.isArray(current_saved)){
+        console.error("why");
+        return;
+      }
+      current_saved.push({
+        'id':current_saved.length+1,
+        'question':question,
+        'answer':answer});
+      chrome.storage.local.set({"saved_questions":current_saved}).then(()=>{
+        console.log("saved it my maan");
+      })
+      
+    })
+    
     console.log("Add to Bookmarks");
   }
 
@@ -63,7 +82,7 @@ const QuestionTile: React.FC<QuestionTileProps> = ({
           <div className="flex items-center justify-between mb-3">
             <p className="text-xl font-bold text-gray-800 flex-grow">{question}</p>
             <CiBookmark 
-            onClick={addToBookmarks}
+            onClick={()=>addToBookmarks(question,correctAnswer)}
               className="text-2xl cursor-pointer transition-transform transform hover:scale-110"  
             />
           </div>

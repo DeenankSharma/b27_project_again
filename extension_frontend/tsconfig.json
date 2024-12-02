@@ -3,5 +3,10 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "lib": ["dom", "esnext"],
+    "typeRoots": ["node_modules/@types"],
+    "types": ["chrome"]
+  }
 }

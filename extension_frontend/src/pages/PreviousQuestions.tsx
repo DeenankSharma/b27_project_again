@@ -1,57 +1,68 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PrevQuesTile from "../components/PrevQuesTile.tsx";
 import { AccordianDataType } from "../utils/types.ts";
 import { useNavigate } from "react-router-dom";
 
-const PreviousQuestions:React.FC = () => {
+const PreviousQuestions:React.FC =  () => {
   const [openId , setOpenId] = useState<number|null>(null);
   const navigate = useNavigate();
+  const [accordionData,setAccordionData]=useState<AccordianDataType[]>([]);
+  useEffect(()=>{
+    chrome.storage.local.get(["saved_questions"]).then((result)=>{
+       let current_saved=result.saved_questions as AccordianDataType[];
+       console.log("called")
+       console.log(`result hai ${result.saved_questions}`)
+       setAccordionData(current_saved);
+  
+    })},[]);
   function OpenthisAccordion(x:number|null){
     if(x!=openId){
       setOpenId(x);
     }
     else if(x===openId){
-      setOpenId(null)
+      setOpenId(null);
     }
   }
+
   console.log("open to ho rha hai")
-  const accordionData: AccordianDataType[] = [
-    {
-      id: 1,
-      question: "What is React?",
-      answer: "React is a JavaScript library for building user interfaces, particularly single-page applications where you need a fast, interactive user experience."
-    },
-    {
-      id: 2,
-      question: "How does TypeScript differ from JavaScript?",
-      answer: "TypeScript is a superset of JavaScript that adds static typing and other features to help catch errors early and improve code quality.ddhcsdhvldhhdblashdvbshvbhjdvbhsdvbdvbahdvbdhvbhjvbhsdbvhdvbhdbhjdvbhadbvhdbvhj"
-    },
-    {
-      id: 3,
-      question: "What are React Hooks?",
-      answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
-    },
-    {
-      id: 4,
-      question: "What are React Hooks?",
-      answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
-    },
-    {
-      id: 5,
-      question: "What are React Hooks?",
-      answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
-    },
-    {
-      id: 6,
-      question: "What are React Hooks?",
-      answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
-    },
-    {
-      id: 7,
-      question: "What are React Hooks?",
-      answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
-    }
-  ];
+  //const accordionData: AccordianDataType[]=current_saved;
+  // [
+  //   {
+  //     id: 1,
+  //     question: "What is React?",
+  //     answer: "React is a JavaScript library for building user interfaces, particularly single-page applications where you need a fast, interactive user experience."
+  //   },
+  //   {
+  //     id: 2,
+  //     question: "How does TypeScript differ from JavaScript?",
+  //     answer: "TypeScript is a superset of JavaScript that adds static typing and other features to help catch errors early and improve code quality.ddhcsdhvldhhdblashdvbshvbhjdvbhsdvbdvbahdvbdhvbhjvbhsdbvhdvbhdbhjdvbhadbvhdbvhnnj"
+  //   },
+  //   {
+  //     id: 3,
+  //     question: "What are React Hooks?",
+  //     answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
+  //   },
+  //   {
+  //     id: 4,
+  //     question: "What are React Hooks?",
+  //     answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
+  //   },
+  //   {
+  //     id: 5,
+  //     question: "What are React Hooks?",
+  //     answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
+  //   },
+  //   {
+  //     id: 6,
+  //     question: "What are React Hooks?",
+  //     answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
+  //   },
+  //   {
+  //     id: 7,
+  //     question: "What are React Hooks?",
+  //     answer: "React Hooks are functions that let you use state and other React features in functional components without writing a class."
+  //   }
+  // ];
 
   return (<>
         <div className="prevQuesHeadingDiv">
