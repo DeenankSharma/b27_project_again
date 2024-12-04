@@ -1,7 +1,8 @@
 {
     "manifest_version":3,
-    "version":"1.0.0",
+    "version":"1.0.1",
     "name":"QuizzyBrowser",
+    "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApacOjsB4IWH4lC21o/L4KKE4ZufgTEbYtyvdilYD7cQ4Z6p2UqbHt2EjrqhFl4u15moLkASHvENl7Tkc/4e69YwlyB0QN6rgIZ111SW9IpA5dwePjGWqhkw7L96guP9gF4Mx6KLY7SBY7OHm+xeYP/5699MKYPr44wCat+C2hWqUm4dU6kvdLGq7uFtaKRXJMSROYOcLKbf/UrU4mtGMAP5Em02OlpOpRkPoiHLFr1K/OwzuFKBtepROqhDXImzu9TnIbg2t8+XBiy2BnFDoSKrh5baLn8b3QectRsOny2q4k9eQKlcTxCJmMDmwV8CIe5Lke8OFl4nmheRKl4fSgwIDAQAB",
     "action":{
       "default_popup":"index.html" ,
       "default_icon":"icon.jpeg"
@@ -29,7 +30,7 @@
       "128":"icon.jpeg"
     },
     "description":"Learn faster, ace interviews! Our AI Chrome extension turns GFG/ MDN into mock interviews. Your AI coach awaits",
-    "trial_tokens": ["ApP9ray8tbdI1ztJicO3Q0uQa91fqHaOoiPkKf3fr5CHHWBXmQy4fBkKAKJmnlqEisYpXIAi/my4zt36w8tM3QcAAAB4eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vaGhrbWtscHBob29rZWxtcGprYWhhYWltZ2VwZmFpaW0iLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElGb3JFeHRlbnNpb24iLCJleHBpcnkiOjE3NjA0ODYzOTl9"],
+    "trial_tokens": ["Aix17vAG2SxFSmA5Ob2GpfOf+2JEFI/iIkykxFSYRCcA0ARCmZ2W9DufZxY3u1pJnrRiHmNRKlkTTCxzB3Z+EgoAAAB4eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vcGJubW9ub2twY2ZsY2VvaWhtZWVsa2trbmlhaGhubmoiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElGb3JFeHRlbnNpb24iLCJleHBpcnkiOjE3NjA0ODYzOTl9"],
     "host_permissions":[
     "https://*.geeksforgeeks.org/*",
     "https://developer.mozilla.org/*"
